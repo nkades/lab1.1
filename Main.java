@@ -7,19 +7,32 @@ public class Main {
         int a = scanner.nextInt();
         int n = scanner.nextInt();
         switch (a) {
-            case 1 -> {
+            case 1:
                 int[] array = cin(n);
                 int min = findMinFromArr(array, n);
                 System.out.println(min);
-            }
-            case 2 -> {
+                break;
+            case 2:
                 int[] arr = cin(n);
                 double avr = findAvrFromArr(arr, n, 0);
                 System.out.println(avr);
-            }
-            case 3 -> System.out.println(PrimeOrNot(n, 2));
+                break;
+            case 3:
+                System.out.println(PrimeOrNot(n, 2));
+                break;
+            case 4:
+                System.out.println(Factorial(n));
         }
 
+    }
+
+    private static int Factorial(int n) {
+        if(n >= 1){
+            return n * Factorial(n - 1);
+        }
+        else{
+            return 1;
+        }
     }
 
     private static String PrimeOrNot(int n, int i) {
