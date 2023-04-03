@@ -22,9 +22,20 @@ public class Main {
                 break;
             case 4:
                 System.out.println(Factorial(n));
+                break;
             case 5:
+                System.out.println(Factorial(n));
+            case 6:
                 int b = scanner.nextInt();
-                System.out.println(pow(n, b));
+                System.out.println(Pow(n, b));
+                break;
+            case 7:
+                int[] ar = cin(n);
+                ReverseOrder(ar, 0, n - 1);
+                for(int i = 0; i < n; i++){
+                    System.out.println(ar[i]);
+                }
+                break;
         }
 
     }
@@ -37,13 +48,24 @@ public class Main {
             return 1;
         }
     }
-    private static int pow(int a, int n){
+    private static int Pow(int a, int n){
         if(n > 0){
-            return a * pow(a, n - 1);
+            return a * Pow(a, n - 1);
         }
         else{
             return 1;
         }
+    }
+    private static int[] ReverseOrder(int[] arr, int s, int e){
+        if(s <= e){
+            int temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            ReverseOrder(arr, s + 1, e - 1);
+        } else if (s == e) {
+            return arr;
+        }
+        return null;
     }
 
     private static String PrimeOrNot(int n, int i) {
