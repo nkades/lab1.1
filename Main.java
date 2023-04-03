@@ -22,6 +22,9 @@ public class Main {
                 break;
             case 4:
                 System.out.println(Factorial(n));
+            case 5:
+                int b = scanner.nextInt();
+                System.out.println(pow(n, b));
         }
 
     }
@@ -29,6 +32,14 @@ public class Main {
     private static int Factorial(int n) {
         if(n >= 1){
             return n * Factorial(n - 1);
+        }
+        else{
+            return 1;
+        }
+    }
+    private static int pow(int a, int n){
+        if(n > 0){
+            return a * pow(a, n - 1);
         }
         else{
             return 1;
