@@ -5,44 +5,109 @@ public class Main {
         System.out.println("Which function?");
         Scanner scanner = new Scanner(System. in);
         int a = scanner.nextInt();
-        int n = scanner.nextInt();
+
         switch (a) {
             case 1:
+                int n = scanner.nextInt();
                 int[] array = cin(n);
                 int min = findMinFromArr(array, n);
                 System.out.println(min);
                 break;
             case 2:
-                int[] arr = cin(n);
-                double avr = findAvrFromArr(arr, n, 0);
+                int c = scanner.nextInt();
+                int[] arr = cin(c);
+                double avr = findAvrFromArr(arr, c, 0);
                 System.out.println(avr);
                 break;
             case 3:
-                System.out.println(PrimeOrNot(n, 2));
+                int g = scanner.nextInt();
+                System.out.println(PrimeOrNot(g, 2));
                 break;
             case 4:
-                System.out.println(Factorial(n));
+                int f = scanner.nextInt();
+                System.out.println(FindFactorial(f));
                 break;
             case 5:
-                System.out.println(Factorial(n));
+                int h = scanner.nextInt();
+                System.out.println(FindFibonacci(h - 1));
+                break;
             case 6:
+                int j = scanner.nextInt();
                 int b = scanner.nextInt();
-                System.out.println(Pow(n, b));
+                System.out.println(Pow(j, b));
                 break;
             case 7:
-                int[] ar = cin(n);
-                ReverseOrder(ar, 0, n - 1);
-                for(int i = 0; i < n; i++){
+                int e = scanner.nextInt();
+                int[] ar = cin(e);
+                ReverseOrder(ar, 0, e - 1);
+                for(int i = 0; i < e; i++){
                     System.out.println(ar[i]);
                 }
                 break;
+            case 8:
+                Scanner scan = new Scanner(System.in);
+                String s = scan.nextLine();
+                int l = s.length();
+                if(CheckIsThereNumbers(s, l - 1)){
+                    System.out.println("Yes");
+                }
+                else{
+                    System.out.println("No");
+                }
+                break;
+
+            case 10:
+                int x = scanner.nextInt();
+                int y = scanner.nextInt();
+                if(x > y){
+                    System.out.println(FindGCD(x, y));
+                }
+                else{
+                    System.out.println(FindGCD(y, x));
+                }
+
         }
 
     }
 
-    private static int Factorial(int n) {
+    private static int FindGCD(int x, int y) {
+        int z = x % y;
+        if(z == 0){
+            return y;
+        }
+        else{
+            return FindGCD(y, z);
+        }
+    }
+
+    private static int FindFibonacci(int h) {
+        if(h == 0){
+            return 1;
+        } else if (h == 1) {
+            return 1;
+        }
+        else{
+            return FindFibonacci(h - 1) + FindFibonacci(h - 2);
+        }
+    }
+
+    private static boolean CheckIsThereNumbers(String s, int i){
+        if(i == 0){
+            return true;
+        }
+        else{
+            char a = s.charAt(i);
+            if(Character.isDigit(a)){
+                return CheckIsThereNumbers(s, i - 1);
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    private static int FindFactorial(int n) {
         if(n >= 1){
-            return n * Factorial(n - 1);
+            return n * FindFactorial(n - 1);
         }
         else{
             return 1;
