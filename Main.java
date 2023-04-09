@@ -55,7 +55,10 @@ public class Main {
                     System.out.println("No");
                 }
                 break;
-
+            case 9:
+                int w = scanner.nextInt();
+                int p = scanner.nextInt();
+                System.out.println(FindBinom(w, p));
             case 10:
                 int x = scanner.nextInt();
                 int y = scanner.nextInt();
@@ -70,6 +73,15 @@ public class Main {
 
     }
 
+    private static int FindBinom(int n, int k){
+        if(k == 0){
+            return 1;
+        }
+        if(n == k){
+            return 1;
+        }
+        return FindBinom(n - 1, k - 1) + FindBinom(n - 1, k);
+    }
     private static int FindGCD(int x, int y) {
         int z = x % y;
         if(z == 0){
